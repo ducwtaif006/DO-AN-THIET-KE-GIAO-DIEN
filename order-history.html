@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Lịch sử mua hàng – Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html">Home</a><a href="menu-tra.html">Menu</a><a href="about.html">Giới thiệu</a>
+      <a href="cart.html" class="active">Giỏ hàng</a><a href="promotions.html">Ưu đãi</a><a href="contact.html">Liên hệ</a>
+    </div>
+  <div class="nav-auth"><button class="btn-register" onclick="location.href='register.html'">Đăng kí</button><button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button></div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="row g-4">
+      <!-- Sidebar -->
+      <div class="col-lg-3">
+        <div class="account-sidebar">
+          <div class="account-avatar">
+            <div style="width:48px;height:48px;border-radius:50%;background:var(--border);margin:0 auto 8px;display:flex;align-items:center;justify-content:center;font-size:20px">👤</div>
+            <p class="account-name" id="accName">—</p>
+            <p class="account-email" id="accEmail">—</p>
+          </div>
+          <div class="account-menu">
+           
+            <a href="order-history.html" class="active">Lịch sử mua hàng</a>
+            <a href="promotions.html">Ưu đãi của tôi</a>
+           
+            <a href="#" id="btnLogout" style="color:#ef4444">Đăng xuất</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Orders -->
+      <div class="col-lg-9">
+        <h2 style="font-size:22px;font-weight:700;margin-bottom:20px">Lịch sử mua hàng</h2>
+
+        <div id="ordersBox"></div>
+        <p id="noOrderMsg" style="display:none;color:var(--gray);padding:24px 0">
+          Bạn chưa có đơn hàng nào. <a href="menu-tra.html">Mua sắm ngay →</a>
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Modal chi tiết đơn hàng -->
+<div class="modal fade" id="orderDetailModal" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content" style="border-radius:16px;border:none">
+      <div class="modal-header" style="border-bottom:1px solid var(--border)">
+        <h5 class="modal-title" id="odTitle" style="font-weight:700;font-size:17px">Chi tiết đơn hàng</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="d-flex justify-content-between align-items-center mb-3" style="font-size:13px;color:var(--gray)">
+<span id="odDate"></span>
+          <span id="odStatus"></span>
+        </div>
+        <div id="odItems"></div>
+        <hr>
+        <div class="d-flex justify-content-between mb-1" style="font-size:14px">
+          <span>Tạm tính</span><span id="odSubtotal"></span>
+        </div>
+        <div class="d-flex justify-content-between mb-2" style="font-size:14px;color:var(--green,#2f6b3a)">
+          <span>Giảm giá <span id="odCouponLabel" style="color:var(--gray);font-size:12px"></span></span>
+          <span id="odDiscount"></span>
+        </div>
+        <div class="d-flex justify-content-between" style="font-size:16px;font-weight:700">
+          <span>Tổng cộng</span><span id="odTotal"></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<button id="backTop">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/orders.js"></script>
+<script src="js/main.js"></script>
+<script>
+// Yêu cầu đăng nhập mới xem được trang này
+const currentUser = getCurrentUser();
+if (!currentUser) {
+  location.href = 'login.html';
+}
+
+document.getElementById('accName').textContent = currentUser ? currentUser.name : '';
+document.getElementById('accEmail').textContent = currentUser ? currentUser.email : '';
+
+document.getElementById('btnLogout').addEventListener('click', function (e) {
+  e.preventDefault();
+  logoutUser();
+  showToast('Đã đăng xuất.');
+  setTimeout(() => location.href = 'login.html', 800);
+});
+
+function statusBadge(status) {
+  if (status === 'Đã huỷ') return '<span class="badge-cancel">Đã huỷ</span>';
+  return '<span class="badge-done">' + status + '</span>';
+}
+
+function renderOrders() {
+  if (!currentUser) return;
+  const orders = getOrdersByEmail(currentUser.email);
+  const box = document.getElementById('ordersBox');
+  const noMsg = document.getElementById('noOrderMsg');
+
+  box.innerHTML = '';
+
+  if (orders.length === 0) {
+    noMsg.style.display = 'block';
+    return;
+}
+  noMsg.style.display = 'none';
+
+  orders.forEach(order => {
+    const itemsText = order.items.map(i => `${i.name} × ${i.qty}`).join(', ');
+    const div = document.createElement('div');
+    div.className = 'order-card';
+    div.innerHTML = `
+      <div class="order-header">
+        <div>
+          <p class="order-id">Đơn hàng #${order.id}</p>
+          <p class="order-items">${itemsText}</p>
+          <p class="order-date">Ngày đặt: ${order.date}</p>
+          <p class="order-total">Tổng tiền: ${formatVND(order.total)}</p>
+        </div>
+        ${statusBadge(order.status)}
+      </div>
+      <button class="btn-detail-order" data-id="${order.id}">Xem chi tiết</button>
+    `;
+    box.appendChild(div);
+  });
+
+  box.querySelectorAll('.btn-detail-order').forEach(btn => {
+    btn.addEventListener('click', () => openOrderDetail(btn.dataset.id));
+  });
+}
+
+function openOrderDetail(orderId) {
+  const order = getOrderById(orderId);
+  if (!order) return;
+
+  document.getElementById('odTitle').textContent = 'Đơn hàng #' + order.id;
+  document.getElementById('odDate').textContent = 'Ngày đặt: ' + order.date;
+  document.getElementById('odStatus').innerHTML = statusBadge(order.status);
+
+  const itemsBox = document.getElementById('odItems');
+  itemsBox.innerHTML = order.items.map(item => {
+    const opts = [];
+    if (item.size) opts.push('Size ' + item.size);
+    if (item.toppings && item.toppings.length) opts.push(item.toppings.join(', '));
+    const optLine = opts.length
+      ? `<p style="font-size:12px;color:var(--gray);margin:0">${opts.join(' • ')}</p>`
+      : '';
+    return `
+      <div class="d-flex justify-content-between align-items-start mb-2">
+        <div>
+          <p style="margin:0;font-weight:600;font-size:14px">${item.name} × ${item.qty}</p>
+          ${optLine}
+        </div>
+        <span style="white-space:nowrap;font-size:14px">${formatVND(item.price * item.qty)}</span>
+      </div>
+    `;
+  }).join('');
+
+  const subtotal = order.subtotal != null
+    ? order.subtotal
+    : order.items.reduce((s, i) => s + i.price * i.qty, 0);
+  const discount = order.discount || 0;
+
+  document.getElementById('odSubtotal').textContent = formatVND(subtotal);
+  document.getElementById('odDiscount').textContent = '−' + formatVND(discount);
+  document.getElementById('odCouponLabel').textContent = order.couponCode ? '(' + order.couponCode + ')' : '';
+  document.getElementById('odTotal').textContent = formatVND(order.total);
+
+  const modalEl = document.getElementById('orderDetailModal');
+  const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+  modal.show();
+}
+
+renderOrders();
+</script>
+</body>
+</html>
