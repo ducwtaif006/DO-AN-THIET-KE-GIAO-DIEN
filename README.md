@@ -1,14 +1,14 @@
 # ✿ Phúc Long Heritage — Website Redesign
 
 > Đồ án môn **Thiết Kế Giao Diện Người Dùng** — Đại học Văn Lang
-> Học kỳ 3, Năm học 2024–2025 | Lớp: **253_71ITSE30903_0103**
+> Học kỳ 3, Năm học 2025–2026 | Lớp: **253_71ITSE30903_0103**
 > GVHD: **Trần Công Thanh**
 
 ---
 
 ## 🌐 Live Website
 
-🔗 **[https://phuclong-nhom.netlify.app](https://phuclong-nhom.netlify.app)**
+🔗 **[phuclong-nhom6.netlify.app]**
 *(Cập nhật link sau khi deploy)*
 
 ---
@@ -17,10 +17,10 @@
 
 | STT | Họ và tên | MSSV | Trang phụ trách | Branch |
 |-----|-----------|------|-----------------|--------|
-| 1 | Bùi Đức Tài | 2474802010341 | Home, About, Login, Register, style.css, main.js | `buiductai` |
+| 1 | Bùi Đức Tài | 2474802010341 | Home, About, Login, Register, style.css, main.js, ReadMe, GIT_GUIDE | `buiductai` |
 | 2 | Nguyễn Thanh Trúc | 2474802010409 | Menu Cà Phê, Chi tiết SP Trà, Chi tiết SP Cà Phê, orders.js | `nguyenthanhtruc` |
-| 3 | Lê Huỳnh Yến Nhi | 2474802010282 | Menu Trà, Giỏ hàng, Lịch sử mua hàng, cart.js | `lehuynhyennhi` |
-| 4 | Phạm Thị Nhi | 2474802010285 | Khuyến mãi, Liên hệ, FAQs, auth.js, images | `phamthinhi` |
+| 3 | Lê Huỳnh Yến Nhi | 2474802010282 | Menu Trà, Cart, order-history, cart.js | `lehuynhyennhi` |
+| 4 | Phạm Thị Nhi | 2474802010285 | promotions, contact, FAQs, auth.js, images | `phamthinhi` |
 
 ---
 
@@ -55,7 +55,7 @@ phuclong-website/
 │   ├── cart.js             # Quản lý giỏ hàng — localStorage
 │   └── orders.js           # Quản lý đơn hàng — localStorage
 │
-├── images/                 # Ảnh sản phẩm export từ Figma
+├── images/                 # Ảnh sản phẩm 
 │   ├── trasuapl.jpg
 │   ├── trasuasocola.jpg
 │   ├── hongtrasua.jpg
@@ -140,17 +140,6 @@ code .
 
 ---
 
-## 🧪 Tài khoản demo để test
-
-| Field | Giá trị |
-|-------|---------|
-| Email | `demo@phuclong.vn` |
-| Mật khẩu | `demo123` |
-
-Tài khoản này có sẵn 4 đơn hàng mẫu trong Lịch sử mua hàng.
-
----
-
 ## 📌 Git Workflow
 
 ```
@@ -186,10 +175,9 @@ Xem hướng dẫn đầy đủ tại: [`GIT_GUIDE.md`](./GIT_GUIDE.md)
 
 | Loại | URL |
 |------|-----|
-| 🎨 Figma Wireframe | [Dán link Figma tại đây] |
-| 🐙 GitHub Repo | [Dán link GitHub tại đây] |
-| 🌐 Website | [Dán link Netlify tại đây] |
-| 🎬 Demo Video | [Dán link video tại đây] |
+| 🎨 Figma Wireframe | [https://www.figma.com/design/okeeklsKjsyvmUn6e0TxeX/WireFrame-Phuclong?node-id=213-2&t=U95lLg2radIs2rIY-1] |
+| 🐙 GitHub Repo | [https://github.com/ducwtaif006/DO-AN-THIET-KE-GIAO-DIEN] |
+| 🌐 Website | [phuclong-nhom6.netlify.app] |
 
 ---
 

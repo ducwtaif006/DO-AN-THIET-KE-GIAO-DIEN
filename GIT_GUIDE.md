@@ -12,7 +12,7 @@ git config --global user.email "email@example.com"
 
 ---
 
-## 📦 Bước 2: Tạo GitHub Repository (Nhóm trưởng — Bùi Đức Tài làm)
+## 📦 Bước 2: Tạo GitHub Repository (Nhóm trưởng —làm)
 
 1. Vào https://github.com → **New repository**
 2. Repository name: `phuclong-website`
@@ -57,14 +57,11 @@ Giải nén file ZIP / lấy file từ Figma export, copy các file được ph�
 
 | Thành viên | MSSV | Branch | File / trang phụ trách |
 |---|---|---|---|
-| **Bùi Đức Tài** (Nhóm trưởng) | 2474802010341 | `buiductai` | `home.html`, `about.html`, `login.html`, `register.html`, `css/style.css`, `js/main.js` |
+| **Bùi Đức Tài** (Nhóm trưởng) | 2474802010341 | `buiductai` | `home.html`, `about.html`, `login.html`, `register.html`, `css/style.css`, `js/main.js` , `README`, `GIT_GUIDE`|
 | **Nguyễn Thanh Trúc** | 2474802010409 | `nguyenthanhtruc` | `menu-caphe.html`, `chitiet-tra.html`, `chitiet-caphe.html`, `js/orders.js` |
 | **Lê Huỳnh Yến Nhi** | 2474802010282 | `lehuynhyennhi` | `menu-tra.html`, `cart.html`, `order-history.html`, `js/cart.js` |
 | **Phạm Thị Nhi** | 2474802010285 | `phamthinhi` | `promotions.html`, `contact.html`, `faqs.html`, `js/auth.js`, `images/` |
 
-**Nhóm trưởng (buiductai)** cũng copy thêm: `README.md`, `GIT_GUIDE.md`
-
-> ⚠️ Lưu ý: file `js/auth.js`, `js/cart.js`, `js/orders.js`, `js/main.js` được nhiều trang cùng gọi (`<script src="js/...">`). Chỉ người phụ trách file đó chỉnh sửa, tránh 2 người cùng sửa 1 file JS gây conflict.
 
 ---
 
@@ -138,7 +135,7 @@ git push origin main
 5. Click **Deploy site**
 6. Netlify tự deploy, mỗi lần push vào `main` sẽ tự cập nhật
 
-> ⚠️ Trang mặc định khi mở link Netlify sẽ là `index.html` nếu có, nếu không sẽ hiện danh sách file. Vì trang chủ của dự án là `home.html`, hãy đặt link truy cập/nộp bài là dạng `random-name.netlify.app/home.html`, hoặc đổi tên `home.html` thành `index.html` trước khi deploy nếu muốn nó tự mở khi vào domain gốc.
+> 
 
 ### Đổi tên domain (tuỳ chọn):
 - Vào **Site settings** → **Change site name**
@@ -180,5 +177,3 @@ git diff
 - ✅ **Repo phải để Public** trên GitHub
 
 ---
-
-*Nếu gặp conflict khi merge, liên hệ nhóm trưởng (Bùi Đức Tài) để giải quyết.*
