@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Giỏ hàng – Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html">Home</a><a href="menu-tra.html">Menu</a><a href="about.html">Giới thiệu</a>
+      <a href="cart.html" class="active">Giỏ hàng <span id="cartBadge" style="display:none;background:var(--green,#2f6b3a);color:#fff;font-size:11px;border-radius:999px;padding:1px 6px;margin-left:2px">0</span></a><a href="promotions.html">Ưu đãi</a><a href="contact.html">Liên hệ</a>
+    </div>
+   <div class="nav-auth"><button class="btn-register" onclick="location.href='register.html'">Đăng kí</button><button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button></div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <div class="d-flex align-items-center justify-content-between mb-4">
+      <div class="d-flex align-items-center gap-3">
+        <h1 style="font-size:22px;font-weight:700;margin:0">Giỏ hàng của bạn</h1>
+        <span id="cartCountLabel" style="font-size:14px;color:var(--gray)">(0 sản phẩm)</span>
+      </div>
+      <button class="history-btn" onclick="location.href='order-history.html'">Lịch sử mua hàng</button>
+    </div>
+
+    <div class="row g-4">
+      <!-- Cart items -->
+      <div class="col-lg-7">
+        <div id="cartItemsBox"></div>
+        <p id="emptyCartMsg" style="display:none;color:var(--gray);padding:24px 0">
+          Giỏ hàng đang trống. <a href="menu-tra.html">Xem thực đơn →</a>
+        </p>
+      </div>
+
+      <!-- Summary -->
+      <div class="col-lg-5">
+        <div class="summary-box">
+          <h3 class="summary-title">Tóm tắt đơn hàng</h3>
+          <div class="summary-row"><span>Tạm tính</span><span id="sumSubtotal">0đ</span></div>
+          <div class="summary-row"><span>Phí dịch vụ</span><span>0đ</span></div>
+          <div class="summary-row"><span>Giảm giá</span><span style="color:var(--green)" id="sumDiscount">–0đ</span></div>
+          <div class="summary-total">
+            <span>Tổng cộng</span>
+            <span id="sumTotal">0đ</span>
+          </div>
+          <div class="d-flex gap-2 mb-1">
+            <input type="text" id="couponInput" class="coupon-input" placeholder="Nhập mã giảm giá" style="flex:1;margin-bottom:0">
+            <button type="button" class="btn-outline" style="white-space:nowrap;padding:0 16px;border-radius:8px" onclick="applyCouponCode()">Áp dụng</button>
+          </div>
+<p id="couponMsg" style="font-size:13px;margin:0 0 12px;display:none"></p>
+          <button class="btn-primary w-100 mb-3" style="border-radius:8px;padding:13px;font-size:15px" onclick="checkout()">
+            Mua hàng
+          </button>
+          <button class="btn-outline w-100" style="border-radius:8px;padding:11px;font-size:14px" onclick="location.href='menu-tra.html'">
+            Quay về cửa hàng
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<button id="backTop">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/orders.js"></script>
+<script src="js/main.js"></script>
+<script>
+// ===== Mã giảm giá =====
+// Danh sách mã hợp lệ (demo). Có thể thêm/bớt mã tuỳ ý ở đây.
+const COUPONS = {
+  'PHUCLONG20': { type: 'amount', value: 20000, label: 'Giảm 20.000đ' },
+  'SALE10':     { type: 'percent', value: 10, max: 30000, label: 'Giảm 10% (tối đa 30.000đ)' }
+};
+
+let appliedCoupon = null; // mã đang được áp dụng (string) hoặc null
+
+function computeDiscount(subtotal) {
+  if (!appliedCoupon || subtotal <= 0) return 0;
+  const c = COUPONS[appliedCoupon];
+  if (!c) return 0;
+  if (c.type === 'amount') return Math.min(c.value, subtotal);
+  if (c.type === 'percent') {
+    const raw = Math.round(subtotal * c.value / 100);
+    return c.max ? Math.min(raw, c.max) : raw;
+  }
+  return 0;
+}
+
+function applyCouponCode() {
+  const input = document.getElementById('couponInput');
+  const msgEl = document.getElementById('couponMsg');
+  const code = input.value.trim().toUpperCase();
+
+  if (!code) {
+    appliedCoupon = null;
+    msgEl.style.color = '#ef4444';
+    msgEl.textContent = 'Vui lòng nhập mã giảm giá.';
+    msgEl.style.display = 'block';
+    renderCart();
+    return;
+  }
+
+  if (COUPONS[code]) {
+    appliedCoupon = code;
+    msgEl.style.color = 'var(--green,#2f6b3a)';
+msgEl.textContent = '✓ Áp dụng mã thành công — ' + COUPONS[code].label;
+  } else {
+    appliedCoupon = null;
+    msgEl.style.color = '#ef4444';
+    msgEl.textContent = 'Mã giảm giá không hợp lệ.';
+  }
+  msgEl.style.display = 'block';
+  renderCart();
+}
+
+function renderCart() {
+  const cart = getCart();
+  const box = document.getElementById('cartItemsBox');
+  const emptyMsg = document.getElementById('emptyCartMsg');
+  const countLabel = document.getElementById('cartCountLabel');
+
+  box.innerHTML = '';
+
+  if (cart.length === 0) {
+    emptyMsg.style.display = 'block';
+  } else {
+    emptyMsg.style.display = 'none';
+    cart.forEach(item => {
+      const optionParts = [];
+      if (item.size) optionParts.push('Size ' + item.size);
+      if (item.toppings && item.toppings.length) optionParts.push(item.toppings.join(', '));
+      const optionLine = optionParts.length ? optionParts.join(' • ') + '<br>' : '';
+
+      const div = document.createElement('div');
+      div.className = 'cart-item';
+      div.innerHTML = `
+        <div class="cart-img-placeholder" style="overflow:hidden">
+          ${item.img
+            ? `<img src="${item.img}" alt="${item.name}" style="width:100%;height:100%;object-fit:cover" onerror="this.style.display='none'">`
+            : '🧋'}
+        </div>
+        <div class="cart-info">
+          <p class="cart-name">${item.name}</p>
+          <p class="cart-sub">${optionLine}${formatVND(item.price)} × ${item.qty}</p>
+          <div class="qty-ctrl">
+            <button class="qty-btn" data-id="${item.id}" data-dir="down">−</button>
+            <input class="qty-num" value="${item.qty}" readonly>
+            <button class="qty-btn" data-id="${item.id}" data-dir="up">+</button>
+          </div>
+        </div>
+        <span class="cart-price">${formatVND(item.price * item.qty)}</span>
+        <button class="cart-remove" data-id="${item.id}">✕</button>
+      `;
+      box.appendChild(div);
+    });
+  }
+
+  countLabel.textContent = `(${cart.length} sản phẩm)`;
+
+  const subtotal = getCartSubtotal();
+  const discount = cart.length > 0 ? computeDiscount(subtotal) : 0;
+  const total = Math.max(subtotal - discount, 0);
+
+  document.getElementById('sumSubtotal').textContent = formatVND(subtotal);
+  document.getElementById('sumDiscount').textContent = '–' + formatVND(discount);
+  document.getElementById('sumTotal').textContent = formatVND(total);
+
+  // Gắn sự kiện cho nút +/- và xoá (gắn lại mỗi lần render vì DOM mới)
+  box.querySelectorAll('.qty-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      changeQty(btn.dataset.id, btn.dataset.dir);
+      renderCart();
+    });
+  });
+  box.querySelectorAll('.cart-remove').forEach(btn => {
+    btn.addEventListener('click', () => {
+      removeFromCart(btn.dataset.id);
+      renderCart();
+    });
+  });
+}
+
+function checkout() {
+  const cart = getCart();
+  if (cart.length === 0) {
+    showToast('Giỏ hàng đang trống!');
+return;
+  }
+
+  const user = getCurrentUser();
+  if (!user) {
+    showToast('Vui lòng đăng nhập trước khi đặt hàng!');
+    setTimeout(() => location.href = 'login.html', 1200);
+    return;
+  }
+
+  const subtotal = getCartSubtotal();
+  const discount = computeDiscount(subtotal);
+  const total = Math.max(subtotal - discount, 0);
+  createOrder(user.email, cart, {
+    subtotal,
+    discount,
+    couponCode: appliedCoupon,
+    total
+  });
+
+  showToast('✓ Đặt hàng thành công! Chúng tôi sẽ xác nhận sớm.');
+  clearCart();
+  appliedCoupon = null;
+  setTimeout(() => location.href = 'order-history.html', 1000);
+}
+
+renderCart();
+</script>
+</body>
+</html>
