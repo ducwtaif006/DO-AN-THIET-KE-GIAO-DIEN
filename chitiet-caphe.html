@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chi tiết sản phẩm – Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html">Home</a>
+      <div class="dropdown">
+        <a href="menu-tra.html">Menu</a>
+        <div class="dropdown-menu-custom">
+          <a href="menu-tra.html">
+            <span class="drop-icon">🍵</span>
+            <div class="drop-info">Trà<small>Ô long, Matcha, Trái cây...</small></div>
+          </a>
+          <div class="dropdown-divider-custom"></div>
+          <a href="menu-caphe.html" class="active">
+            <span class="drop-icon">☕</span>
+            <div class="drop-info">Cà Phê<small>Cappuccino, Latte, Cold brew...</small></div>
+          </a>
+        </div>
+      </div>
+      <a href="about.html">Giới thiệu</a>
+      <a href="cart.html">Giỏ hàng <span id="cartBadge" style="display:none;background:var(--green);color:#fff;font-size:11px;border-radius:999px;padding:1px 6px;margin-left:2px">0</span></a>
+      <a href="promotions.html">Ưu đãi</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+    <div class="nav-auth">
+      <button class="btn-register" onclick="location.href='register.html'">Đăng kí</button>
+      <button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button>
+    </div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &rsaquo;
+      <a href="menu-caphe.html">Menu</a> &rsaquo;
+      <a href="menu-caphe.html">Cà Phê</a> &rsaquo;
+      <span style="color:var(--dark)" id="crumbName">Cà Phê Cappuccino</span>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <!-- Image -->
+      <div class="col-lg-5">
+        <div class="detail-img" style="max-width:100%;height:380px;background:#fff;border-radius:20px;display:flex;align-items:center;justify-content:center;border:1px solid var(--border)">
+          <img id="productImg" src="" alt="" style="width:100%;height:100%;object-fit:contain;border-radius:20px;display:none">
+          <span id="imgPlaceholder" style="font-size:13px;color:var(--brown)">Ảnh sản phẩm</span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="col-lg-7">
+        <h1 class="detail-title" id="productName">Cà Phê Cappuccino</h1>
+        <p class="detail-sub" id="productSub">Arabica Bảo Lộc ngâm lạnh 18 giờ</p>
+<p class="detail-price" style="color:var(--brown)" id="productPrice">52.000đ</p>
+
+        <p class="option-label">Chọn size:</p>
+        <div class="size-options mb-4">
+          <button class="size-btn active">S</button>
+          <button class="size-btn">M</button>
+          <button class="size-btn">L</button>
+        </div>
+
+        <p class="option-label">Tùy chọn:</p>
+        <div class="sugar-grid mb-4">
+          <button type="button" class="sugar-btn active">Không đường</button>
+          <button type="button" class="sugar-btn">Ít đường</button>
+          <button type="button" class="sugar-btn">Bình thường</button>
+          <button type="button" class="sugar-btn">Ngọt vừa</button>
+        </div>
+
+        <p class="option-label">Số lượng:</p>
+        <div class="qty-ctrl mb-4" style="justify-content:flex-start">
+          <button type="button" class="qty-btn" id="qtyMinus" data-dir="down">−</button>
+          <input class="qty-num" id="qtyNum" value="1" readonly>
+          <button type="button" class="qty-btn" id="qtyPlus" data-dir="up">+</button>
+        </div>
+
+        <button class="btn-primary w-100 mb-4" id="addToCartBtn" style="border-radius:8px;padding:14px;font-size:15px">
+          Thêm vào giỏ hàng
+        </button>
+
+        <p class="desc-title">Mô tả sản phẩm</p>
+        <p class="desc-text" id="productDesc">Cold Brew được ngâm lạnh trong 18 giờ để chiết xuất hết vị đắng tự nhiên, cho hương vị đậm đà mà không chát. Thích hợp uống trong ngày hè.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<button id="backTop">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/cart.js"></script>
+
+<script>
+  // ===== Dữ liệu tất cả sản phẩm cà phê =====
+  // Muốn thêm sản phẩm mới: chỉ cần thêm 1 object vào đây,
+// rồi thêm nút "Xem chi tiết" ở menu-caphe.html trỏ tới chitiet-caphe.html?id=<id-tương-ứng>
+  const PRODUCTS = {
+    "cappuccino": {
+      name: "Cà Phê Cappuccino",
+      sub: "Arabica Bảo Lộc ngâm lạnh 18 giờ",
+      price: "45.000đ",
+      priceNum: 45000,
+      img: "images/caphecapucchino.jpg",
+      desc: "Cold Brew được ngâm lạnh trong 18 giờ để chiết xuất hết vị đắng tự nhiên, cho hương vị đậm đà mà không chát. Thích hợp uống trong ngày hè."
+    },
+    "sua-kem-silky": {
+      name: "Cà Phê Sữa Kem Silky",
+      sub: "Cà phê Arabica pha cùng lớp kem sữa béo mịn",
+      price: "55.000đ",
+      priceNum: 55000,
+      img: "images/caphesuakemsilky.jpg",
+      desc: "Cà Phê Sữa Kem Silky kết hợp vị cà phê đậm đà cùng lớp kem sữa béo mịn tan chảy trên đầu lưỡi, tạo nên trải nghiệm thưởng thức êm ái, khó quên."
+    },
+    "sua-da": {
+      name: "Cà Phê Sữa Đá",
+      sub: "Cà phê phin truyền thống pha cùng sữa đặc",
+      price: "39.000đ",
+      priceNum: 39000,
+      img: "images/caphesuada.jpg",
+      desc: "Cà Phê Sữa Đá là thức uống truyền thống với vị cà phê đậm đắng hòa quyện cùng vị ngọt béo của sữa đặc, mang đậm hương vị Việt Nam."
+    },
+    "latte": {
+      name: "Cà Phê Latte",
+      sub: "Cà phê Arabica pha cùng sữa tươi béo mịn",
+      price: "42.000đ",
+      priceNum: 42000,
+      img: "images/caphelatte.jpg",
+      desc: "Cà Phê Latte hòa quyện vị đắng nhẹ của cà phê Arabica cùng lớp sữa tươi béo mịn, tạo nên thức uống êm dịu, dễ uống."
+    }
+  };
+
+  let currentProductId = 'cappuccino';
+
+  // ===== Phụ phí theo lựa chọn =====
+  // Size: S = giá gốc, M/L cộng thêm phụ phí bên dưới.
+  // Tùy chọn đường (sugar): mặc định KHÔNG cộng thêm phí (chỉ là mức ngọt).
+  // Muốn tính thêm phí cho 1 tùy chọn đường cụ thể thì thêm key vào SUGAR_EXTRA.
+  const SIZE_EXTRA = { S: 0, M: 5000, L: 10000 };
+  const SUGAR_EXTRA = {}; // ví dụ: { "Ngọt vừa": 3000 }
+
+  function getSelectedSize() {
+    const activeSizeBtn = document.querySelector('.size-options .size-btn.active');
+    return activeSizeBtn ? activeSizeBtn.textContent.trim() : 'S';
+  }
+
+  function getSelectedSugar() {
+    const activeSugarBtn = document.querySelector('.sugar-grid .sugar-btn.active');
+    return activeSugarBtn ? activeSugarBtn.textContent.trim() : null;
+  }
+
+  // Tính đơn giá (1 sản phẩm) dựa trên giá gốc + phụ phí size + phụ phí tùy chọn đường
+  function computeUnitPrice() {
+    const product = PRODUCTS[currentProductId];
+    const size = getSelectedSize();
+    const sugar = getSelectedSugar();
+    const sizeExtra = SIZE_EXTRA[size] || 0;
+    const sugarExtra = sugar ? (SUGAR_EXTRA[sugar] || 0) : 0;
+    return product.priceNum + sizeExtra + sugarExtra;
+  }
+
+  // Cập nhật lại giá hiển thị mỗi khi đổi size / tùy chọn đường
+  function updatePriceDisplay() {
+    const unitPrice = computeUnitPrice();
+    document.getElementById('productPrice').textContent = formatVND(unitPrice);
+  }
+
+  function loadProductDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    currentProductId = PRODUCTS[id] ? id : 'cappuccino'; // mặc định nếu không có id
+    const product = PRODUCTS[currentProductId];
+
+    document.getElementById('crumbName').textContent = product.name;
+    document.getElementById('productName').textContent = product.name;
+    document.getElementById('productSub').textContent = product.sub;
+    document.getElementById('productDesc').textContent = product.desc;
+    document.title = product.name + " – Phúc Long Heritage";
+
+    const img = document.getElementById('productImg');
+    const placeholder = document.getElementById('imgPlaceholder');
+    if (product.img) {
+      img.src = product.img;
+      img.alt = product.name;
+      img.style.display = 'block';
+      placeholder.style.display = 'none';
+    }
+
+    updatePriceDisplay(); // hiển thị giá đúng theo size mặc định (S)
+  }
+
+  // ===== Size & tùy chọn đường: cập nhật giá khi bấm chọn =====
+  // (js/main.js đã lo việc toggle class "active" khi bấm, ở đây chỉ cần
+  // tính lại giá SAU khi class active đã được cập nhật)
+  function setupPriceUpdateOnOptionChange() {
+    document.querySelectorAll('.size-options .size-btn').forEach(btn => {
+      btn.addEventListener('click', updatePriceDisplay);
+    });
+    document.querySelectorAll('.sugar-grid .sugar-btn').forEach(btn => {
+      btn.addEventListener('click', updatePriceDisplay);
+    });
+  }
+
+  // ===== Số lượng =====
+  // Lưu ý: nút +/- số lượng dùng chung cơ chế xử lý ở js/main.js (dựa vào
+  // thuộc tính data-dir="up"/"down" trên nút), nên KHÔNG gắn thêm listener
+// ở đây để tránh xung đột (bấm 1 lần nhưng chạy 2 lần logic khác nhau).
+
+  // ===== Thêm vào giỏ hàng =====
+  function setupAddToCart() {
+    document.getElementById('addToCartBtn').addEventListener('click', () => {
+      const product = PRODUCTS[currentProductId];
+
+      const size = getSelectedSize();
+      const sugar = getSelectedSugar();
+      const unitPrice = computeUnitPrice();
+
+      const qty = parseInt(document.getElementById('qtyNum').value) || 1;
+
+      addToCart(
+        {
+          id: currentProductId,
+          name: product.name,
+          price: unitPrice,
+          img: product.img
+        },
+        qty,
+        { size, toppings: sugar ? [sugar] : [] }
+      );
+
+      showToast('✓ Đã thêm vào giỏ hàng!');
+      setTimeout(() => location.href = 'cart.html', 800);
+    });
+  }
+
+  loadProductDetail();
+  setupPriceUpdateOnOptionChange();
+  setupAddToCart();
+</script>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Chi tiết sản phẩm – Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html">Home</a><a href="menu-tra.html" class="active">Menu</a><a href="about.html">Giới thiệu</a>
+      <a href="cart.html">Giỏ hàng <span id="cartBadge" style="display:none;background:var(--green);color:#fff;font-size:11px;border-radius:999px;padding:1px 6px;margin-left:2px">0</span></a><a href="promotions.html">Ưu đãi</a><a href="contact.html">Liên hệ</a>
+    </div>
+   <div class="nav-auth"><button class="btn-register" onclick="location.href='register.html'">Đăng kí</button><button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button></div>
+  </div>
+</nav>
+
+<section class="section">
+  <div class="container">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> &rsaquo;
+      <a href="menu-tra.html">Menu</a> &rsaquo;
+      <a href="menu-tra.html">Trà</a> &rsaquo;
+      <span style="color:var(--dark)" id="crumbName">Trà Sữa Ô Long</span>
+    </div>
+
+    <div class="row g-5 align-items-start">
+      <!-- Image -->
+      <div class="col-lg-5">
+        <div class="detail-img" style="max-width:100%;height:380px;background:#fff;border-radius:20px">
+          <img id="productImg" src="" alt="" style="width:100%;height:100%;object-fit:contain;border-radius:20px;display:none">
+          <span id="imgPlaceholder" style="font-size:13px;color:var(--green)">Ảnh sản phẩm</span>
+        </div>
+      </div>
+
+      <!-- Info -->
+      <div class="col-lg-7">
+        <h1 class="detail-title" id="productName">Trà Sữa Ô Long</h1>
+        <p class="detail-sub" id="productSub">Trà ô long Bảo Lộc pha với sữa tươi cao cấp</p>
+        <p class="detail-price green" id="productPrice">45.000đ</p>
+
+        <p class="option-label">Chọn size:</p>
+        <div class="size-options mb-4">
+          <button type="button" class="size-btn active">S</button>
+          <button type="button" class="size-btn">M</button>
+          <button type="button" class="size-btn">L</button>
+        </div>
+
+        <p class="option-label">Topping (chọn tối đa 2):</p>
+        <div class="topping-grid mb-4">
+          <label class="topping-item"><input type="checkbox"> Trân châu đen</label>
+          <label class="topping-item"><input type="checkbox"> Trân châu trắng</label>
+          <label class="topping-item"><input type="checkbox"> Pudding</label>
+          <label class="topping-item"><input type="checkbox"> Thạch trái cây</label>
+        </div>
+
+        <p class="option-label">Số lượng:</p>
+        <div class="qty-ctrl mb-4" style="justify-content:flex-start">
+          <button type="button" class="qty-btn" id="qtyMinus">−</button>
+          <input class="qty-num" id="qtyNum" value="1" readonly>
+          <button type="button" class="qty-btn" id="qtyPlus">+</button>
+        </div>
+
+        <button class="btn-primary w-100 mb-4" id="addToCartBtn" style="border-radius:8px;padding:14px;font-size:15px">
+          Thêm vào giỏ hàng
+        </button>
+
+        <p class="desc-title">Mô tả sản phẩm</p>
+        <p class="desc-text" id="productDesc">Trà Sữa Ô Long được pha chế từ lá trà ô long được thu hoạch tại Bảo Lộc, Lâm Đồng. Kết hợp với sữa tươi nguyên chất, tạo nên hương vị đặc trưng của Phúc Long Heritage.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<button id="backTop">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+
+<script>
+  // ===== Dữ liệu tất cả sản phẩm trà =====
+  // Muốn thêm sản phẩm mới: chỉ cần thêm 1 object vào đây,
+  // rồi thêm nút "Xem chi tiết" ở menu-tra.html trỏ tới chitiet-tra.html?id=<id-tương-ứng>
+  // Lưu ý: "price" là chuỗi hiển thị, "priceNum" là số dùng để tính tiền giỏ hàng.
+  const PRODUCTS = {
+    "tra-sua-olong": {
+      name: "Trà Sữa Ô Long",
+      sub: "Trà ô long Bảo Lộc pha với sữa tươi cao cấp",
+      price: "45.000đ",
+      priceNum: 45000,
+      img: "images/trasuaolong.jpg",
+      desc: "Trà Sữa Ô Long được pha chế từ lá trà ô long được thu hoạch tại Bảo Lộc, Lâm Đồng. Kết hợp với sữa tươi nguyên chất, tạo nên hương vị đặc trưng của Phúc Long Heritage."
+    },
+    "matcha-latte": {
+      name: "Matcha Latte",
+      sub: "Bột matcha Nhật Bản nguyên chất pha cùng sữa tươi",
+      price: "55.000đ",
+      priceNum: 55000,
+      img: "images/trasuamatcha.jpg",
+      desc: "Matcha Latte mang vị trà xanh đậm đà, thanh mát, hòa quyện cùng lớp sữa béo nhẹ, thích hợp cho những ai yêu thích hương vị nguyên bản của trà xanh Nhật Bản."
+    },
+    "tra-lucky-tea": {
+      name: "Trà Lucky Tea",
+      sub: "Trà trái cây tươi mát, kết hợp nhiều loại trái cây theo mùa",
+      price: "49.000đ",
+      priceNum: 49000,
+      img: "images/traluckytea.jpg",
+      desc: "Trà Lucky Tea là sự kết hợp của trà nguyên chất cùng các loại trái cây tươi, mang lại hương vị chua ngọt hài hòa, sảng khoái cho ngày dài năng động."
+    },
+    "tra-sua-socola": {
+      name: "Trà sữa Socola",
+      sub: "Trà sữa hòa quyện cùng socola nguyên chất",
+      price: "50.000đ",
+      priceNum: 50000,
+      img: "images/trasuasocola.jpg",
+      desc: "Trà sữa Socola mang đến vị béo ngậy đặc trưng của socola kết hợp cùng nền trà thơm nhẹ, tạo nên thức uống đậm đà, ngọt ngào."
+    },
+    "hong-tra-sua": {
+      name: "Hồng Trà Sữa",
+      sub: "Hồng trà nguyên chất pha cùng sữa tươi cao cấp",
+      price: "45.000đ",
+      priceNum: 45000,
+      img: "images/hongtrasua.jpg",
+      desc: "Hồng Trà Sữa giữ trọn hương thơm đặc trưng của hồng trà, kết hợp cùng sữa tươi béo nhẹ, mang lại vị ngọt thanh dễ uống."
+    },
+    "tra-lai-mang-cau": {
+      name: "Trà Lài Măng Cầu",
+      sub: "Trà lài thơm nhẹ kết hợp cùng măng cầu tươi",
+      price: "52.000đ",
+      priceNum: 52000,
+      img: "images/tralaimangcau.jpg",
+      desc: "Trà Lài Măng Cầu hòa quyện hương hoa lài thanh khiết cùng vị ngọt đặc trưng của măng cầu, tạo nên thức uống thơm mát, lạ miệng."
+    },
+    "tra-vai-lai": {
+      name: "Trà Vải Lài",
+      sub: "Trà lài thơm nhẹ kết hợp cùng vải thiều tươi",
+      price: "55.000đ",
+      priceNum: 55000,
+      img: "images/travailai.jpg",
+      desc: "Trà Vải Lài mang vị ngọt thanh của vải thiều hòa cùng hương hoa lài dịu nhẹ, đem lại cảm giác sảng khoái, tươi mới."
+    },
+    "tra-nhan-sen": {
+      name: "Trà Nhãn Sen",
+      sub: "Trà xanh kết hợp cùng nhãn và hạt sen thanh mát",
+      price: "42.000đ",
+      priceNum: 42000,
+      img: "images/tranhansen.jpg",
+      desc: "Trà Nhãn Sen kết hợp vị ngọt dịu của nhãn cùng hạt sen bùi thơm, mang đến thức uống thanh mát, tốt cho sức khỏe."
+    }
+  };
+
+  let currentProductId = 'tra-sua-olong';
+
+  // ===== Phụ phí theo lựa chọn =====
+  // Size: S = giá gốc, M/L cộng thêm phụ phí bên dưới.
+  // Topping: mỗi topping được chọn cộng thêm phụ phí (tối đa 2 topping).
+  const SIZE_EXTRA = { S: 0, M: 5000, L: 10000 };
+  const TOPPING_EXTRA = 10000; // phụ phí cho MỖI topping được chọn
+
+  function getSelectedSize() {
+    const activeSizeBtn = document.querySelector('.size-options .size-btn.active');
+    return activeSizeBtn ? activeSizeBtn.textContent.trim() : 'S';
+  }
+
+  function getSelectedToppings() {
+    return Array.from(
+      document.querySelectorAll('.topping-item input[type="checkbox"]:checked')
+    ).map(cb => cb.closest('.topping-item').textContent.trim());
+  }
+
+  // Tính đơn giá (1 sản phẩm) = giá gốc + phụ phí size + (số topping × phụ phí topping)
+  function computeUnitPrice() {
+    const product = PRODUCTS[currentProductId];
+    const size = getSelectedSize();
+    const toppings = getSelectedToppings();
+    const sizeExtra = SIZE_EXTRA[size] || 0;
+    const toppingExtra = toppings.length * TOPPING_EXTRA;
+    return product.priceNum + sizeExtra + toppingExtra;
+  }
+
+  // Cập nhật lại giá hiển thị mỗi khi đổi size / topping
+  function updatePriceDisplay() {
+    const unitPrice = computeUnitPrice();
+    document.getElementById('productPrice').textContent = formatVND(unitPrice);
+  }
+
+  function loadProductDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    currentProductId = PRODUCTS[id] ? id : 'tra-sua-olong'; // mặc định nếu không có id
+    const product = PRODUCTS[currentProductId];
+
+    document.getElementById('crumbName').textContent = product.name;
+    document.getElementById('productName').textContent = product.name;
+    document.getElementById('productSub').textContent = product.sub;
+    document.getElementById('productDesc').textContent = product.desc;
+    document.title = product.name + " – Phúc Long Heritage";
+
+    const img = document.getElementById('productImg');
+    const placeholder = document.getElementById('imgPlaceholder');
+    if (product.img) {
+      img.src = product.img;
+      img.alt = product.name;
+      img.style.display = 'block';
+      placeholder.style.display = 'none';
+    }
+
+    updatePriceDisplay(); // hiển thị giá đúng theo size mặc định (S), chưa topping
+  }
+
+  // ===== Số lượng =====
+  function setupQtyControls() {
+    const qtyNum = document.getElementById('qtyNum');
+    document.getElementById('qtyMinus').addEventListener('click', () => {
+      qtyNum.value = Math.max(parseInt(qtyNum.value) - 1, 1);
+    });
+    document.getElementById('qtyPlus').addEventListener('click', () => {
+      qtyNum.value = Math.min(parseInt(qtyNum.value) + 1, 20);
+    });
+  }
+
+  // ===== Size: cập nhật giá khi đổi size =====
+  function setupSizePriceUpdate() {
+    document.querySelectorAll('.size-options .size-btn').forEach(btn => {
+      btn.addEventListener('click', updatePriceDisplay);
+    });
+  }
+
+  // ===== Topping: giới hạn chọn tối đa 2 + cập nhật giá =====
+  function setupToppingLimit() {
+    const checkboxes = document.querySelectorAll('.topping-item input[type="checkbox"]');
+    checkboxes.forEach(cb => {
+      cb.addEventListener('change', () => {
+        const checkedCount = document.querySelectorAll('.topping-item input[type="checkbox"]:checked').length;
+        checkboxes.forEach(other => {
+          if (!other.checked) other.disabled = checkedCount >= 2;
+        });
+        updatePriceDisplay();
+      });
+    });
+  }
+
+  // ===== Thêm vào giỏ hàng =====
+  function setupAddToCart() {
+    document.getElementById('addToCartBtn').addEventListener('click', () => {
+      const product = PRODUCTS[currentProductId];
+
+      const size = getSelectedSize();
+      const toppings = getSelectedToppings();
+      const unitPrice = computeUnitPrice();
+
+      const qty = parseInt(document.getElementById('qtyNum').value) || 1;
+
+      addToCart(
+        {
+          id: currentProductId,
+          name: product.name,
+          price: unitPrice,
+          img: product.img
+        },
+        qty,
+        { size, toppings }
+      );
+
+      showToast('✓ Đã thêm vào giỏ hàng!');
+      setTimeout(() => location.href = 'cart.html', 800);
+    });
+  }
+
+  loadProductDetail();
+  setupQtyControls();
+  setupSizePriceUpdate();
+  setupToppingLimit();
+  setupAddToCart();
+</script>
+</body>
+</html>
