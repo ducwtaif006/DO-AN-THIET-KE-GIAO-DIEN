@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Đăng ký – Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html">Home</a><a href="menu-tra.html">Menu</a><a href="about.html">Giới thiệu</a>
+      <a href="cart.html">Giỏ hàng</a><a href="promotions.html">Ưu đãi</a><a href="contact.html">Liên hệ</a>
+    </div>
+    <div class="nav-auth"><button class="btn-register">Đăng kí</button><button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button></div>
+  </div>
+</nav>
+
+<div class="login-page">
+  <div class="login-card">
+    <div class="login-brand">✿ Phúc Long Heritage</div>
+    <h1 class="login-title">Tạo tài khoản mới</h1>
+    <p class="login-sub">Đăng ký để nhận ưu đãi dành riêng cho bạn!</p>
+
+    <form id="registerForm" novalidate>
+      <div class="mb-3">
+        <label class="form-label">Họ và tên</label>
+        <input type="text" id="rName" class="form-input" placeholder="Nguyễn Văn A">
+        <div id="rNameErr" style="font-size:12px;color:#ef4444;margin-top:4px;display:none">Vui lòng nhập họ tên.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Email</label>
+        <input type="email" id="rEmail" class="form-input" placeholder="email@example.com">
+        <div id="rEmailErr" style="font-size:12px;color:#ef4444;margin-top:4px;display:none">Email không hợp lệ.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Số điện thoại <span style="color:#9ca3af;font-weight:400">(không bắt buộc)</span></label>
+        <input type="tel" id="rPhone" class="form-input" placeholder="09xxxxxxxx">
+        <div id="rPhoneErr" style="font-size:12px;color:#ef4444;margin-top:4px;display:none">Số điện thoại không hợp lệ.</div>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Mật khẩu</label>
+        <input type="password" id="rPass" class="form-input" placeholder="Tối thiểu 6 ký tự">
+        <div id="rPassErr" style="font-size:12px;color:#ef4444;margin-top:4px;display:none">Mật khẩu phải có ít nhất 6 ký tự.</div>
+      </div>
+      <div class="mb-2">
+        <label class="form-label">Xác nhận mật khẩu</label>
+        <input type="password" id="rPass2" class="form-input" placeholder="••••••••">
+        <div id="rPass2Err" style="font-size:12px;color:#ef4444;margin-top:4px;display:none">Mật khẩu xác nhận không khớp.</div>
+      </div>
+      <div class="form-row" style="justify-content:flex-start;margin-bottom:16px">
+        <label style="display:flex;align-items:center;gap:6px;cursor:pointer;font-size:13px">
+          <input type="checkbox" id="rTerms" style="accent-color:var(--green)"> Tôi đồng ý với điều khoản sử dụng
+        </label>
+      </div>
+      <div id="rTermsErr" style="font-size:12px;color:#ef4444;margin-top:-10px;margin-bottom:10px;display:none">Bạn cần đồng ý với điều khoản để tiếp tục.</div>
+      <button type="submit" class="btn-primary btn-full">Đăng ký</button>
+    </form>
+
+    <div class="divider">hoặc</div>
+    <button class="btn-social" onclick="showToast('Tính năng đang phát triển...')">Đăng ký với Google</button>
+    <button class="btn-social" onclick="showToast('Tính năng đang phát triển...')">Đăng ký với Facebook</button>
+    <div class="login-footer">Đã có tài khoản? <a href="login.html">Đăng nhập ngay</a></div>
+  </div>
+</div>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a><a href="contact.html">liên hệ</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/main.js"></script>
+<script>
+document.getElementById('registerForm').addEventListener('submit', function (e) {
+  e.preventDefault();
+
+  const name  = document.getElementById('rName');
+  const email = document.getElementById('rEmail');
+  const phone = document.getElementById('rPhone');
+  const pass  = document.getElementById('rPass');
+  const pass2 = document.getElementById('rPass2');
+  const terms = document.getElementById('rTerms');
+
+  const nameErr  = document.getElementById('rNameErr');
+  const emailErr = document.getElementById('rEmailErr');
+  const phoneErr = document.getElementById('rPhoneErr');
+  const passErr  = document.getElementById('rPassErr');
+  const pass2Err = document.getElementById('rPass2Err');
+  const termsErr = document.getElementById('rTermsErr');
+
+  [name, email, phone, pass, pass2].forEach(el => el.classList.remove('error'));
+  [nameErr, emailErr, phoneErr, passErr, pass2Err, termsErr].forEach(el => el.style.display = 'none');
+
+  let ok = true;
+
+  if (!name.value.trim()) { name.classList.add('error'); nameErr.style.display = 'block'; ok = false; }
+
+  if (!email.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+    email.classList.add('error'); emailErr.style.display = 'block'; ok = false;
+  }
+
+  if (phone.value.trim() && !/^0\d{9,10}$/.test(phone.value.trim())) {
+    phone.classList.add('error'); phoneErr.style.display = 'block'; ok = false;
+  }
+
+  if (!pass.value || pass.value.length < 6) {
+    pass.classList.add('error'); passErr.style.display = 'block'; ok = false;
+  }
+
+  if (pass2.value !== pass.value || !pass2.value) {
+    pass2.classList.add('error'); pass2Err.style.display = 'block'; ok = false;
+  }
+
+  if (!terms.checked) {
+    termsErr.style.display = 'block'; ok = false;
+  }
+
+  if (!ok) return;
+
+  const result = registerUser({
+    name: name.value.trim(),
+    email: email.value.trim(),
+    phone: phone.value.trim(),
+    password: pass.value
+  });
+
+  if (!result.ok) {
+    email.classList.add('error');
+    emailErr.textContent = result.message;
+    emailErr.style.display = 'block';
+    return;
+  }
+
+  showToast('✓ Đăng ký thành công! Đang chuyển đến trang đăng nhập...');
+  setTimeout(() => location.href = 'login.html', 1200);
+});
+</script>
+</body>
+</html>

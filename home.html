@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phúc Long Heritage</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="container d-flex align-items-center" style="height:56px;gap:8px">
+    <a href="home.html" class="nav-brand">✿ Phúc Long</a>
+    <div class="nav-links ms-auto">
+      <a href="home.html" class="active">Home</a>
+      <a href="menu-tra.html">Menu</a>
+      <a href="about.html">Giới thiệu</a>
+      <a href="cart.html">Giỏ hàng <span id="cartBadge" style="display:none;background:var(--green,#2f6b3a);color:#fff;font-size:11px;border-radius:999px;padding:1px 6px;margin-left:2px">0</span></a>
+      <a href="promotions.html">Ưu đãi</a>
+      <a href="contact.html">Liên hệ</a>
+    </div>
+    <div class="nav-auth">
+      <button class="btn-register" onclick="location.href='register.html'">Đăng kí</button>
+      <button class="btn-login" onclick="location.href='login.html'">Đăng nhập</button>
+    </div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-big-letter">A</div>
+  <div class="container position-relative" style="z-index:1">
+    <div class="hero-content">
+      <div class="hero-label">
+        <span>100%</span>
+      </div>
+      <div class="hero-sub">ARABICA TUYỂN CHỌN</div>
+    </div>
+    <div class="hero-tagline">Tinh tế trong từng bước tiến</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats-bar">
+  <div class="container">
+    <div class="row text-center g-2">
+      <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-num">1968</span><span class="stat-lbl">Năm thành lập</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-num">70+</span><span class="stat-lbl">Cửa hàng</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-num">50+</span><span class="stat-lbl">Sản phẩm</span></div></div>
+      <div class="col-6 col-md-3"><div class="stat-item"><span class="stat-num">55+</span><span class="stat-lbl">Năm KN</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURED PRODUCTS -->
+<section class="section">
+  <div class="container">
+    <div class="d-flex justify-content-between align-items-end mb-4">
+      <div><p class="eyebrow">Thực đơn</p><h2 class="section-title">Sản phẩm nổi bật</h2></div>
+      <a href="menu-tra.html" class="btn-outline btn-sm">Xem tất cả →</a>
+    </div>
+    <div class="row g-3">
+      <div class="col-6 col-md-3 reveal">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="images/trasuapl.jpg" alt="Trà Sữa Phúc Long" class="product-img"
+                 onerror="this.onerror=null;this.src='https://placehold.co/300x300/2f6b3a/fff?text=Trà+Sữa+Phúc+Long'">
+          </div>
+          <p class="product-name">Trà sữa phúc long</p>
+          <p class="product-price green">45.000đ</p>
+          <button class="btn-cart" onclick="addToCart({id:'trasuapl',name:'Trà sữa phúc long',price:45000,img:'images/trasuapl.jpg'});showToast('✓ Đã thêm vào giỏ hàng!')">🛒 Đặt mua</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="images/trasuasocola.jpg" alt="Trà Sữa Socola" class="product-img"
+                 onerror="this.onerror=null;this.src='https://placehold.co/300x300/8B6914/fff?text=Trà+Sữa+Socola'">
+          </div>
+          <p class="product-name">Trà sữa Socola</p>
+          <p class="product-price green">45.000đ</p>
+          <button class="btn-cart" onclick="addToCart({id:'trasuasocola',name:'Trà sữa Socola',price:45000,img:'images/trasuasocola.jpg'});showToast('✓ Đã thêm vào giỏ hàng!')">🛒 Đặt mua</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="images/hongtrasua.jpg" alt="Hồng Trà Sữa" class="product-img"
+                 onerror="this.onerror=null;this.src='https://placehold.co/300x300/c8952a/fff?text=Hồng+Trà+Sữa'">
+          </div>
+          <p class="product-name">Hồng trà sữa</p>
+          <p class="product-price green">45.000đ</p>
+          <button class="btn-cart" onclick="addToCart({id:'hongtrasua',name:'Hồng trà sữa',price:45000,img:'images/hongtrasua.jpg'});showToast('✓ Đã thêm vào giỏ hàng!')">🛒 Đặt mua</button>
+        </div>
+      </div>
+      <div class="col-6 col-md-3 reveal">
+        <div class="product-card">
+          <div class="product-img-box">
+            <img src="images/trasuamatcha.jpg" alt="Trà Sữa Matcha" class="product-img"
+                 onerror="this.onerror=null;this.src='https://placehold.co/300x300/5a8c3a/fff?text=Trà+Sữa+Matcha'">
+          </div>
+          <p class="product-name">Trà sữa Matcha</p>
+          <p class="product-price green">45.000đ</p>
+          <button class="btn-cart" onclick="addToCart({id:'trasuamatcha',name:'Trà sữa Matcha',price:45000,img:'images/trasuamatcha.jpg'});showToast('✓ Đã thêm vào giỏ hàng!')">🛒 Đặt mua</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="pl-footer">
+  <div class="container">
+    <div class="row g-4 pb-4">
+      <div class="col-lg-3 col-6"><div class="footer-col"><div class="footer-brand">Phúc Long Heritage</div><a href="about.html">Giới thiệu </a>  </div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Địa chỉ</h5><a href="https://www.google.com/maps/search/?api=1&query=123+L%C3%BD+Th%C6%B0%E1%BB%9Dng+Ki%E1%BB%87t+Q10+TPHCM" target="_blank" rel="noopener">123 Lý Thường Kiệt, Q.10, TP.HCM</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Khuyến mãi</h5><a href="promotions.html">Tin khuyến mãi</a></div></div>
+      <div class="col-lg-3 col-6"><div class="footer-col"><h5>Liên hệ</h5><a href="contact.html">Liên hệ</a></div></div>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-copy">© 2025 Phúc Long Heritage. All rights reserved.</p>
+  </div>
+</footer>
+<button id="backTop">↑</button>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/cart.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
